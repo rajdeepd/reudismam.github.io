@@ -160,8 +160,8 @@ public class Foo {
  }
 }
 ```
-`StringBuffer` to `StringBuilder`
----------------------------------
+## `StringBuffer` to `StringBuilder`
+
 
 `StringBuffer` and `StringBuilder` denote a mutable sequence of characters. These two types are
 compatible, but `StringBuilder` provides no guarantee of synchronizations. Since
