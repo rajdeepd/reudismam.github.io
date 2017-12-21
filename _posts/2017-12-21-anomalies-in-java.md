@@ -34,14 +34,6 @@ code example of adding the final modifier to a parameter. Variable `a` is
 assigned a single time. Thus, it can be declared final such as variable `b`.
  
  {% gist 6fd3b7bc1e429eb3b9ba1c7391c273a0 %}
- 
-```java
-public class Bar {
- public void foo() {
-  String a = "a"; //if a is not assigned again it is better to do this:
-  final String b = "b";
- }
-```
 
 Allows Type Inference for Generic Instance Creation
 ---------------------------------------------------
@@ -60,12 +52,8 @@ operator in a variable declaration. Instead of using the type parameter `<String
 developers can use the diamond to invoke the constructor of generic `HashMap`
 class.
 
-```java
-//Bad
-Map < String, List < String >> myMap = new HashMap < String, List < String >> ();
-//Good
-Map < String, List < String >> myMap = new HashMap < > ();   
-```
+ {% gist 1c3b883182d654aa61c5b5414d49f358 %}
+ 
 
 Remove Raw Type
 ---------------
