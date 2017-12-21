@@ -216,7 +216,7 @@ Prefer String Literal equals Method
 -------------------------------------
 
 The equals method is widely used. Some usages
-can cause due to the right-hand side of the method object reference
+can cause `NullPointerException` due to the right-hand side of the method object reference
 being null. When using the `equals` method to compare some variable to a String
 Literal, developers could overcome null point errors by allowing the
 string literal to call the `equals` method because a string literal is never
@@ -251,7 +251,7 @@ Prefer String Constant equals Method
 --------------------------------------
 
 The equals method is widely used. Some usages
-can cause due to the right-hand side of the `equals` method object reference
+can cause `NullPointerException` due to the right-hand side of the `equals` method object reference
 being null. When using the `equals` method to compare some variable to a string
 constant, developers could overcome null point errors by allowing the
 string constant to call the `equals` method because a constant is rarely null.
