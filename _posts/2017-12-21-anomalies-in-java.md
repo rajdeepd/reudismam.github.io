@@ -1,48 +1,12 @@
 ---
-abstract: 'Abstract ...'
-author:
-- Gang Zhou
-- Valerie Béranger
-- Aparna Patel
-- Huifen Chan
-- Ting Yan
-- Tian He
-- Chengdu Huang
-- 'John A. Stankovic'
-- 'Tarek F. Abdelzaher'
-bibliography:
-- 'catalog/ref.bib'
-title: 'Learning Error Patterns and Fixes using Revision Histories: catalog'
-...
+layout:     post
+title:      Anomalies in Java
+date:       2017-12-21 14:00:00
+summary:    Anomalies in Java
+categories: Java
+commentIssueId: 1
+---
 
-&lt;ccs2012&gt; &lt;concept&gt;
-&lt;concept\_id&gt;10010520.10010553.10010562&lt;/concept\_id&gt;
-&lt;concept\_desc&gt;Computer systems organization Embedded
-systems&lt;/concept\_desc&gt;
-&lt;concept\_significance&gt;500&lt;/concept\_significance&gt;
-&lt;/concept&gt; &lt;concept&gt;
-&lt;concept\_id&gt;10010520.10010575.10010755&lt;/concept\_id&gt;
-&lt;concept\_desc&gt;Computer systems
-organization Redundancy&lt;/concept\_desc&gt;
-&lt;concept\_significance&gt;300&lt;/concept\_significance&gt;
-&lt;/concept&gt; &lt;concept&gt;
-&lt;concept\_id&gt;10010520.10010553.10010554&lt;/concept\_id&gt;
-&lt;concept\_desc&gt;Computer systems
-organization Robotics&lt;/concept\_desc&gt;
-&lt;concept\_significance&gt;100&lt;/concept\_significance&gt;
-&lt;/concept&gt; &lt;concept&gt;
-&lt;concept\_id&gt;10003033.10003083.10003095&lt;/concept\_id&gt;
-&lt;concept\_desc&gt;Networks Network reliability&lt;/concept\_desc&gt;
-&lt;concept\_significance&gt;100&lt;/concept\_significance&gt;
-&lt;/concept&gt; &lt;/ccs2012&gt;
-
-Introduction
-============
-
-Write introduction here...
-
-Catalog
-=======
 
 In this section, we present a catalog of anomalies that developers
 perform in Java. For each anomaly, we include name, description,
@@ -67,15 +31,16 @@ anomaly is included in tools such as PMD. IDEs such as Eclipse and
 Netbeans can be configured to add final modifiers to fields, parameters,
 and local variables automatically on saving. Fig. \[fig:final\] shows a
 code example of adding the final modifier to a parameter. Variable is
-assigned a single time. Thus, it can be declared final such as variable
-.
+assigned a single time. Thus, it can be declared final such as variable.
 
+{% highlight java %}
     public class Bar {
      public void foo () {
       String a = "a"; //if a will not be assigned again it is better to do this:
       final String b = "b";
      }
     }
+{% endhighlight %}
 
 Allows Type Inference for Generic Instance Creation
 ---------------------------------------------------
