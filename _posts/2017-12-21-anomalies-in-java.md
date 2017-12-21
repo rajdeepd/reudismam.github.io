@@ -17,7 +17,7 @@ metrics such as bug fixing, clarity, performance.
 Field, Parameter, Local Variable Could Be Final
 -----------------------------------------------
 
-Besides classes and methods, developers can use the modifier in fields,
+Besides classes and methods, developers can use the `final` modifier in fields,
 parameters, and local variables. The semantic differs for each one of
 these usages. A final class cannot be extended, a final method cannot be
 overridden, and final fields, parameters, and local variables cannot
@@ -30,13 +30,13 @@ allows the compiler and virtual machine to optimize the code. This
 anomaly is included in tools such as PMD. IDEs such as Eclipse and
 Netbeans can be configured to add final modifiers to fields, parameters,
 and local variables automatically on saving. Fig. \[fig:final\] shows a
-code example of adding the final modifier to a parameter. Variable is
-assigned a single time. Thus, it can be declared final such as variable.
+code example of adding the final modifier to a parameter. Variable `a` is
+assigned a single time. Thus, it can be declared final such as variable `b`.
 
 ```java
 public class Bar {
  public void foo() {
-  String a = "a"; //if a will not be assigned again it is better to do this:
+  String a = "a"; //if a is not assigned again it is better to do this:
   final String b = "b";
  }
 ```
@@ -54,14 +54,16 @@ version of a generic type without type arguments. Java allows raw types
 only to ensure compatibility with pre-generics code. The benefit of the
 diamond constructor, in this context, is clarity since it is more
 concise. Fig. \[fig:removediamond\] shows the use of the diamond
-operator in a variable declaration. Instead of using the type parameter
-, developers can use the diamond to to invoke the constructor of generic
+operator in a variable declaration. Instead of using the type parameter `<String, List<String>>`
+, developers can use the diamond to invoke the constructor of generic `HashMap`
 class.
 
-    //Bad
-    Map<String, List<String>> myMap = new HashMap<String, List<String>>();
-    //Good
-    Map<String, List<String>> myMap = new HashMap<>();
+```java
+//Bad
+Map < String, List < String >> myMap = new HashMap < String, List < String >> ();
+//Good
+Map < String, List < String >> myMap = new HashMap < > ();   
+```
 
 Remove Raw Type
 ---------------
@@ -75,25 +77,29 @@ types into the source code. Fig. \[fig:rawtype\] shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
 raw type since it is unchecked.
 
-    List<String> strings = ... // some list that contains some strings
-    // Totally legal since you used the raw type and lost all type checking!
-    List<Integer> integers = new LinkedList(strings);
-    // Not legal since the right side is actually generic!
-    List<Integer> integers = new LinkedList<>(strings);
+```java
+List<String> strings = ... // some list that contains some strings
+// Totally legal since you used the raw type and lost all type checking!
+List<Integer> integers = new LinkedList(strings);
+// Not legal since the right side is actually generic!
+List<Integer> integers = new LinkedList<>(strings);
+```
 
-Prefer 
+Prefer `Class<?>`
 -------
 
-Java prefers over plain although these constructions are
-equivalent @EC05THIN. The benefit of is clarity since developers
+Java prefers `Class<?>` over plain `Class` although these constructions are
+equivalent @EC05THIN. The benefit of `Class<?>` is clarity since developers
 explicitly indicates that they are aware of not using an out-dated Java
-construction. The Java compiler generates warning on the use of .
-Fig. \[fig:class\] exemplifies the use of .
+construction. The Java compiler generates warning on the use of `Class`.
+Fig. \[fig:class\] exemplifies the use of `Class<?>`.
 
+```java
     //Any class
     Class anyType = String.class;
     //Unknown Type
     Class <?> unknownType = String.class;
+```
 
 Use Variadic Functions
 ----------------------
@@ -109,20 +115,26 @@ notation independently of the number of arguments. For the compiler
 perspective, the method receives an array as parameter.
 Fig. \[fig:varargs\] shows the use of the Variadic functions.
 
-    //...
-    myMethod("foo", "bar");
-    myMethod("foo", "bar", "baz");
-    myMethod(new String[]{"foo", "var", "baz"}); // you can even pass an array
-    //...
-    public void myMethod(String... strings){
-        for(String whatever : strings){
-          // do what ever you want
-        }
-        // the code above is is equivalent to
-        for( int i = 0; i < strings.length; i++){
-          // classical for. In this case you use strings[i]
-        }
-    }
+```java
+//...
+myMethod("foo", "bar");
+myMethod("foo", "bar", "baz");
+myMethod(new String[] {
+ "foo",
+ "var",
+ "baz"
+}); // you can even pass an array
+//...
+public void myMethod(String...strings) {
+ for (String whatever: strings) {
+  // do what ever you want
+ }
+ // the code above is is equivalent to
+ for (int i = 0; i < strings.length; i++) {
+  // classical for. In this case you use strings[i]
+ }
+}
+```
 
 String to Character
 -------------------
@@ -135,164 +147,177 @@ For instance, this edit improves from 10-25% the performance at the
 Guava project[^1]. This transformation is included in the catalog of
 anomalies of tools such as PMD.
 
-    public class Foo {
-     void bar() {
-      StringBuffer sb=new StringBuffer();
-      // Avoid this
-      sb.append("a");
+```java
+public class Foo {
+ void bar() {
+  StringBuffer sb = new StringBuffer();
+  // Avoid this
+  sb.append("a");
 
-      // use instead something like this
-      StringBuffer sb=new StringBuffer();
-      sb.append('a');
-     }
-    }
-
- to 
+  // use instead something like this
+  StringBuffer sb = new StringBuffer();
+  sb.append('a');
+ }
+}
+```
+StringBuffer to StringBuilder
 ----
 
-and denote a mutable sequence of characters. These two types are
-compatible, but provides no guarantee of synchronizations. Since
-synchronization is rarely used, offers right performance over its
-counterpart. If developers want to synchronize a StringBuilder, they can
-surround the code block with a synchronized operator . This class is
-designed to replace StringBuffer in places where was being used by a
-single thread @URLORACLESTRINGBUILDER. Java recommends the use of in
-preference to due to performance. Fig. \[fig:stringbuilder\] shows an
-example of the use of the class.
+`StringBuffer` and `StringBuilder` denote a mutable sequence of characters. These two types are
+compatible, but `StringBuilder` provides no guarantee of synchronizations. Since
+synchronization is rarely used, `StringBuilder` offers right performance over its
+counterpart. If developers want to synchronize a `StringBuilder`, they can
+surround the code block with a synchronized operator `synchronized(sb){}`. This class is
+designed to replace `StringBuffer` in places where was being used by a
+single thread @URLORACLESTRINGBUILDER. Java recommends the use of `StringBuilder` in
+preference to `StringBuffer` due to performance. Fig. \[fig:stringbuilder\] shows an
+example of the use of the `StringBuilder` class.
 
-    public class Bar {
-     public void foo () {
-      StringBuffer a = new StringBuffer(); //In a single thread, prefer the following:
-      StringBuilder b = new StringBuilder();
-     }
-    }
+```java
+public class Bar {
+ public void foo() {
+  StringBuffer a = new StringBuffer(); //In a single thread, prefer the following:
+  StringBuilder b = new StringBuilder();
+ }
+}
+```
 
-Use Collection 
+Use Collection `isEmpty`
 ---------------
 
-The use of is encouraged to verify whether the list contains no elements
+The use of `isEmpty` is encouraged to verify whether the list contains no elements
 instead of verifying the size of a collection. Although in the majority
 of collections, these two constructions are equivalent, for other
 collections computing the size of an arbitrary list could be expensive.
-For instance, in the class , the size method is not a constant-time
+For instance, in the class `ConcurrentSkipListSet`, the size method is not a constant-time
 operation @URLORACLECONCURRENTSKIPLISTSET. This transformation is
 included in the catalog of anomalies of tools such as PMD.
-Fig. \[fig:isempty\] shows an example of use of the method.
+Fig. \[fig:isempty\] shows an example of use of the `isEmpty` method.
 
-    public class Foo {
-     void good() {
-      List foo = getList();
-      if (foo.isEmpty()) {
-       // blah
-      }
-     }
+```java
+public class Foo {
+ void good() {
+  List foo = getList();
+  if (foo.isEmpty()) {
+   // blah
+  }
+ }
 
-     void bad() {
-      List foo = getList();
-      if (foo.size() == 0) {
-       // blah
-      }
-     }
-    }
+ void bad() {
+  List foo = getList();
+  if (foo.size() == 0) {
+   // blah
+  }
+ }
+}
+```
 
-Prefer String Literal Method
+Prefer String Literal `equals` Method
 ----------------------------
 
 The equals method is widely used in software development. Some usages
 can cause due to the right-hand side of the method object reference
-being null. When using the method to compare some variable to a String
+being null. When using the `equals` method to compare some variable to a String
 Literal, developers could overcome null point errors by allowing the
-string literal to call the method because a string literal is never
+string literal to call the `equals` method because a string literal is never
 null. Since Java string literal equals method checks for null, we do not
 need to check for null explicitly when calling the equals method of a
 string literal.
 
-    public class Foo {
-     //Good
-     void good(String str) {
-      if ("string".equals(str)) {
-       // blah
-      }
-     }
-     // Causes error if str is null
-     void bad(String str) {
-      if (str.equals("string") {
-       // blah
-      }
-     }
-     // Do not need to check for null since equals evaluate it.
-     void bad2(String str) {
-      if (str != null && str.equals("string") {
-       // blah
-      }
-     }
+```java
+public class Foo {
+  //Good
+  void good(String str) {
+    if ("string".equals(str)) {
+     // blah
     }
+   }
+ // Causes error if str is null
+ void bad(String str) {
+   if (str.equals("string") {
+     // blah
+    }
+ }
+ // Do not need to check for null since equals evaluate it.
+ void bad2(String str) {
+   if (str != null && str.equals("string") {
+     // blah
+   }
+ }
+}
+ ```
 
-Prefer String Literal Method
+Prefer String Constant `equals` Method
 ----------------------------
 
 The equals method is widely used in software development. Some usages
-can cause due to the right-hand side of the method object reference
-being null. When using the method to compare some variable to a string
+can cause due to the right-hand side of the `equals` method object reference
+being null. When using the `equals` method to compare some variable to a string
 constant, developers could overcome null point errors by allowing the
-string constant to call the method because a constant is rarely null.
+string constant to call the `equals` method because a constant is rarely null.
 Since Java string literal equals method checks for null, we do not need
 to check for null explicitly when calling the equals method of a string
 literal.
 
-    public class Foo {
-     //Good
-     void good(String str) {
-      if (CONSTANT.equals(str)) {
-       // blah
-      }
-     }
-     // Causes error if str is null
-     void bad(String str) {
-      if (str.equals(CONSTANT) {
-       // blah
-      }
-     }
-     // Do not need to check for null since equals evaluate it.
-     void bad2(String str) {
-      if (str != null && str.equals(CONSTANT) {
-       // blah
-      }
-     }
+```java
+public class Foo {
+  //Good
+  void good(String str) {
+    if (CONSTANT.equals(str)) {
+      // blah
     }
+  }
+  // Causes error if str is null
+  void bad(String str) {
+    if (str.equals(CONSTANT) {
+      // blah
+    }
+  }
+  // Do not need to check for null since equals evaluate it.
+  void bad2(String str) {
+    if (str != null && str.equals(CONSTANT) {
+      // blah
+    }
+  }
+}
+```
 
-Use instead Wrapper Constructor
+Use `valueOf` instead Wrapper Constructor
 -------------------------------
 
-Java allows to use the method or the constructor to create wrapper
-objects of primitive types. Java recommends the use of valueOf for
-performance purpose since method cached some values. This checker is
+Java allows to use the method `valueOf` or the constructor to create wrapper
+objects of primitive types. Java recommends the use of `valueOf` for
+performance purpose since `valueOf` method caches some values. This checker is
 included in the catalog of anomalies of tools such as Sonar.
-Fig. \[fig:isempty\] shows an example of the use of the method.
+Fig. \[fig:isempty\] shows an example of the use of the `valueOf` method.
 
-    Integer a = new Integer(1); //Instead of using the Integer constructor, use the valueOf
-    Integer b = Integer.valueOf(1);
+```java
+Integer a = new Integer(1); //Instead of using the Integer constructor, use the valueOf
+Integer b = Integer.valueOf(1);
+```
 
-Avoid using /
+Avoid using `FileInputStream`/`FileOutputStream`
 -------------
 
-and override . As a result, objects of these classes go to a category
+`FileInputStream` and `FileOutputStream` override `finalize()`. As a result, objects of these classes go to a category
 that is cleaned only when a full clearing is performed by the Garbage
 Collector @URLDZONEINPUTSTREAM. Since Java 7, developers can use
 counterpart to improve program performance. This anomaly is described as
 a bug by Java JDK @URLJAVAJDK.
 
-    //Bad
-    public void writeToFile(String fileName, byte[] content) throws IOException {
-        try (FileOutputStream os = new FileOutputStream(fileName)) {
-            os.write(content);
-        }
-    }
-    //Good
-    public void writeToFile(String fileName, byte[] content) throws IOException {
-        try (OutputStream os = Files.newOutputStream(Paths.get(fileName))) {
-            os.write(content);
-        }
-    }
+```java
+//Bad
+public void writeToFile(String fileName, byte[] content) throws IOException {
+  try (FileOutputStream os = new FileOutputStream(fileName)) {
+   os.write(content);
+  }
+ }
+ //Good
+public void writeToFile(String fileName, byte[] content) throws IOException {
+ try (OutputStream os = Files.newOutputStream(Paths.get(fileName))) {
+  os.write(content);
+ }
+}
+```
 
 [^1]: https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722
