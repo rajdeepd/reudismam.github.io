@@ -46,7 +46,7 @@ Allows Type Inference for Generic Instance Creation
 
 Since Java 7, developers can replace the type arguments required to
 invoke the constructor of a generic class with an empty set of type
-parameters (&lt;&gt;) [^6]. The empty set of type
+parameters (&lt;&gt;)[^6]. The empty set of type
 parameters, also known as diamond, allows the compiler to infer type
 arguments from the context. By using diamond construction, developers
 make clear the use of generic instead of the deprecated raw types, the
@@ -89,7 +89,7 @@ Prefer `Class<?>`
 -----------------
 
 Java prefers `Class<?>` over plain `Class` although these constructions are
-equivalent [^2]. The benefit of `Class<?>` is clarity since developers
+equivalent[^2]. The benefit of `Class<?>` is clarity since developers
 explicitly indicates that they are aware of not using an out-dated Java
 construction. The Java compiler generates warning on the use of `Class`.
 Fig. \[fig:class\] exemplifies the use of `Class<?>`.
@@ -169,7 +169,7 @@ synchronization is rarely used, `StringBuilder` offers right performance over it
 counterpart. If developers want to synchronize a `StringBuilder`, they can
 surround the code block with a synchronized operator `synchronized(sb){}`. This class is
 designed to replace `StringBuffer` in places where was being used by a
-single thread [^5]. Java recommends the use of `StringBuilder` in
+single thread[^5]. Java recommends the use of `StringBuilder` in
 preference to `StringBuffer` due to performance. Fig. \[fig:stringbuilder\] shows an
 example of the use of the `StringBuilder` class.
 
@@ -190,7 +190,7 @@ instead of verifying the size of a collection. Although in the majority
 of collections, these two constructions are equivalent, for other
 collections computing the size of an arbitrary list could be expensive.
 For instance, in the class `ConcurrentSkipListSet`, the size method is not a constant-time
-operation [^4]. This transformation is
+operation[^4]. This transformation is
 included in the catalog of anomalies of tools such as PMD.
 Fig. \[fig:isempty\] shows an example of use of the `isEmpty` method.
 
@@ -301,9 +301,9 @@ Avoid using `FileInputStream`/`FileOutputStream`
 
 `FileInputStream` and `FileOutputStream` override `finalize()`. As a result, objects of these classes go to a category
 that is cleaned only when a full clearing is performed by the Garbage
-Collector [^1]. Since Java 7, developers can use
+Collector[^1]. Since Java 7, developers can use
 counterpart to improve program performance. This anomaly is described as
-a bug by Java JDK [^3].
+a bug by Java JDK[^3].
 
 ```java
 //Bad
