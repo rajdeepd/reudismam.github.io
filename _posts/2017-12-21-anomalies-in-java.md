@@ -54,8 +54,8 @@ version of a generic type without type arguments. Java allows raw types
 only to ensure compatibility with pre-generics code. The benefit of the
 diamond constructor, in this context, is clarity since it is more
 concise. Fig. \[fig:removediamond\] shows the use of the diamond
-operator in a variable declaration. Instead of using the type parameter `<String, List<String>>`
-, developers can use the diamond to invoke the constructor of generic `HashMap`
+operator in a variable declaration. Instead of using the type parameter `<String, List<String>>`, 
+developers can use the diamond to invoke the constructor of generic `HashMap`
 class.
 
 ```java
@@ -140,7 +140,7 @@ String to Character
 -------------------
 
 In Java, we can represent a character both as a string or a character.
-For some operations such as concatenating or appending a value to a / it
+For some operations such as concatenating or appending a value to a `StringBuilder` it
 is better to represent the value as a character if the value itself is a
 character. Representing the value as a character improves performance.
 For instance, this edit improves from 10-25% the performance at the
@@ -160,7 +160,7 @@ public class Foo {
  }
 }
 ```
-StringBuffer to StringBuilder
+`StringBuffer` to `StringBuilder`
 -----------------------------
 
 `StringBuffer` and `StringBuilder` denote a mutable sequence of characters. These two types are
