@@ -191,7 +191,7 @@ The use of `isEmpty` is encouraged to verify whether the list contains no elemen
 instead of verifying the size of a collection. Although in the majority
 of collections, these two constructions are equivalent, for other
 collections computing the size of an arbitrary list could be expensive.
-For instance, in the class [`ConcurrentSkipListSet`](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ ConcurrentSkipListSet.html), the size method is not a constant-time
+For instance, in the class [ConcurrentSkipListSet](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html), the size method is not a constant-time
 operation. This transformation is
 included in the catalog of anomalies of tools such as PMD.
 Fig. \[fig:isempty\] shows an example of use of the `isEmpty` method.
