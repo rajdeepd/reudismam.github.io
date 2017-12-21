@@ -326,10 +326,10 @@ public void writeToFile(String fileName, byte[] content) throws IOException {
 
 [^2]:	Bruce Eckel. 2005. Thinking in Java (4th Edition). Prentice Hall PTR, Upper Saddle River, NJ, USA.
 
-[^3]:	BUGSOPENJDK. Relax FileInputStream/FileOutputStream requirement to use finalize. (2017). At [https://bugs.openjdk.java.net/browse/JDK-8187325]{https://bugs.openjdk.java.net/browse/JDK-8187325}. Accessed in 2017, December 19.
+[^3]:	BUGSOPENJDK. Relax FileInputStream/FileOutputStream requirement to use finalize. (2017). At [https://bugs.openjdk.java.net/browse/JDK-8187325](https://bugs.openjdk.java.net/browse/JDK-8187325). Accessed in 2017, December 19.
   
-[^5]:	Oracle. Class StringBuilder. (2017). At [https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html]{https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html}. Accessed in 2017, December 19.
+[^5]:	Oracle. Class StringBuilder. (2017). At [https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html](https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html). Accessed in 2017, December 19.
 
-[^6]:	Oracle. Type Inference for Generic Instance Creation. (2017). At [https://docs.oracle.com/javase/7/docs/technotes/guides/language/type-inference-generic-instance-creation.html]{https://docs.oracle.com/javase/7/docs/technotes/guides/language/type-inference-generic-instance-creation.html}. Accessed in 2017, December 19.
+[^6]:	Oracle. Type Inference for Generic Instance Creation. (2017). At [https://docs.oracle.com/javase/7/docs/technotes/guides/language/type-inference-generic-instance-creation.html](https://docs.oracle.com/javase/7/docs/technotes/guides/language/type-inference-generic-instance-creation.html). Accessed in 2017, December 19.
 
 
