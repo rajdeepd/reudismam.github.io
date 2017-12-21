@@ -49,7 +49,7 @@ invoke the constructor of a generic class with an empty set of type
 parameters (&lt;&gt;).[^6] The empty set of type
 parameters, also known as diamond, allows the compiler to infer type
 arguments from the context. By using diamond construction, developers
-make clear the use of generic instead of the deprecated raw types, the
+clarify the use of generic instead of the deprecated raw types, the
 version of a generic type without type arguments. Java allows raw types
 only to ensure compatibility with pre-generics code. The benefit of the
 diamond constructor, in this context, is clarity since it is more
