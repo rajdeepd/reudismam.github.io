@@ -310,6 +310,8 @@ a.sidebar-nav-item:focus {
 .page,
 .post {
   margin-bottom: 4em;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 /* Blog post or page title */
