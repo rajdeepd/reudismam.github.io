@@ -14,7 +14,17 @@ title: Home
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
-    {Reudismam}
+    {{post.content}}
+    
+    <div>
+      <h3><strong><em>Comments</em></strong></h3>
+      <div>
+        Want to leave a comment? Write your comment
+        <a href="https://github.com/colinxy/colinxy.github.io/issues/{{page.commentIssueId}}">here</a>.
+      </div>
+      <div id="comments"></div>
+    </div>
+    
   </div>
   {% endfor %}
 </div>
