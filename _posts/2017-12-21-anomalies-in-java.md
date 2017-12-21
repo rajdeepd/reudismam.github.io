@@ -29,7 +29,7 @@ state and are more likely to break the code. In addition, final modifier
 allows the compiler and virtual machine to optimize the code. This
 anomaly is included in tools such as PMD. IDEs such as Eclipse and
 Netbeans can be configured to add final modifiers to fields, parameters,
-and local variables automatically on saving. Fig. \[fig:final\] shows a
+and local variables automatically on saving. Code snipped bellow shows a
 code example of adding the final modifier to a parameter. Variable `a` is
 assigned a single time. Thus, it can be declared final such as variable `b`.
 
@@ -53,7 +53,7 @@ make clear the use of generic instead of the deprecated raw types, the
 version of a generic type without type arguments. Java allows raw types
 only to ensure compatibility with pre-generics code. The benefit of the
 diamond constructor, in this context, is clarity since it is more
-concise. Fig. \[fig:removediamond\] shows the use of the diamond
+concise. Code snipped bellow shows the use of the diamond
 operator in a variable declaration. Instead of using the type parameter `<String, List<String>>`, 
 developers can use the diamond to invoke the constructor of generic `HashMap`
 class.
@@ -73,7 +73,7 @@ without type arguments, which was used in the out-dated version of Java
 and is allowed to ensure compatibility with pre-generics code. Since
 type arguments of raw types are unchecked, they can cause compiler error
 at run-time. Java compiler generates warning to indicate the use of raw
-types into the source code. Fig. \[fig:rawtype\] shows the use of a raw
+types into the source code. Code snipped bellow shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
 raw type since it is unchecked.
 
@@ -85,14 +85,14 @@ List<Integer> integers = new LinkedList(strings);
 List<Integer> integers = new LinkedList<>(strings);
 ```
 
-Prefer `Class<?>`
+Prefer Class<?>
 -----------------
 
 Java prefers `Class<?>` over plain `Class` although these constructions are
 equivalent[^2]. The benefit of `Class<?>` is clarity since developers
 explicitly indicates that they are aware of not using an out-dated Java
 construction. The Java compiler generates warning on the use of `Class`.
-Fig. \[fig:class\] exemplifies the use of `Class<?>`.
+Code snipped bellow exemplifies the use of `Class<?>`.
 
 ```java
     //Any class
@@ -113,7 +113,7 @@ arguments to the method. The benefit of using varargs is simplicity
 since developers do not need to create overload methods and use the same
 notation independently of the number of arguments. For the compiler
 perspective, the method receives an array as parameter.
-Fig. \[fig:varargs\] shows the use of the Variadic functions.
+Code snipped bellow shows the use of the Variadic functions.
 
 ```java
 //...
@@ -172,7 +172,7 @@ counterpart. If developers want to synchronize a `StringBuilder`, they can
 surround the code block with a synchronized operator `synchronized(sb){}`. This class is
 designed to replace `StringBuffer` in places where was being used by a
 single thread[^5]. Java recommends the use of `StringBuilder` in
-preference to `StringBuffer` due to performance. Fig. \[fig:stringbuilder\] shows an
+preference to `StringBuffer` due to performance. Code snipped bellow shows an
 example of the use of the `StringBuilder` class.
 
 ```java
@@ -184,7 +184,7 @@ public class Bar {
 }
 ```
 
-Use Collection `isEmpty`
+Use Collection isEmpty
 -----------------------
 
 The use of `isEmpty` is encouraged to verify whether the list contains no elements
@@ -194,7 +194,7 @@ collections computing the size of an arbitrary list could be expensive.
 For instance, in the class [ConcurrentSkipListSet](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html), the size method is not a constant-time
 operation. This transformation is
 included in the catalog of anomalies of tools such as PMD.
-Fig. \[fig:isempty\] shows an example of use of the `isEmpty` method.
+Code snipped bellow shows an example of use of the `isEmpty` method.
 
 ```java
 public class Foo {
@@ -214,7 +214,7 @@ public class Foo {
 }
 ```
 
-Prefer String Literal `equals` Method
+Prefer String Literal equals Method
 -------------------------------------
 
 The equals method is widely used in software development. Some usages
@@ -249,7 +249,7 @@ public class Foo {
 }
  ```
 
-Prefer String Constant `equals` Method
+Prefer String Constant equals Method
 --------------------------------------
 
 The equals method is widely used in software development. Some usages
@@ -284,14 +284,14 @@ public class Foo {
 }
 ```
 
-Use `valueOf` instead Wrapper Constructor
+Use valueOf instead Wrapper Constructor
 -----------------------------------------
 
 Java allows to use the method `valueOf` or the constructor to create wrapper
 objects of primitive types. Java recommends the use of `valueOf` for
 performance purpose since `valueOf` method caches some values. This checker is
 included in the catalog of anomalies of tools such as Sonar.
-Fig. \[fig:isempty\] shows an example of the use of the `valueOf` method.
+Code snipped bellow shows an example of the use of the `valueOf` method.
 
 ```java
 Integer a = new Integer(1); //Instead of using the Integer constructor, use the valueOf
