@@ -185,7 +185,7 @@ public class Bar {
 Use Collection isEmpty
 -----------------------
 
-The use of `isEmpty` is encouraged to verify whether the list contains no elements
+The use of `isEmpty` is recommended to verify whether the list contains no elements
 instead of verifying the size of a collection. Although in the majority
 of collections, these two constructions are equivalent, for other
 collections computing the size of an arbitrary list could be expensive.
