@@ -191,7 +191,7 @@ The use of `isEmpty` is encouraged to verify whether the list contains no elemen
 instead of verifying the size of a collection. Although in the majority
 of collections, these two constructions are equivalent, for other
 collections computing the size of an arbitrary list could be expensive.
-For instance, in the class `ConcurrentSkipListSet`, the size method is not a constant-time
+For instance, in the class [`ConcurrentSkipListSet`](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ ConcurrentSkipListSet.html), the size method is not a constant-time
 operation[^4]. This transformation is
 included in the catalog of anomalies of tools such as PMD.
 Fig. \[fig:isempty\] shows an example of use of the `isEmpty` method.
@@ -330,8 +330,6 @@ public void writeToFile(String fileName, byte[] content) throws IOException {
 [^2]:	Bruce Eckel. 2005. Thinking in Java (4th Edition). Prentice Hall PTR, Upper Saddle River, NJ, USA.
 
 [^3]:	Java JDK. 2017. Relax FileInputStream/FileOutputStream requirement to use finalize. (2017). At https://bugs.openjdk. java.net/browse/JDK-8187325. Accessed in 2017, December 19.
-
-[^4]:	Oracle. 2017. Class ConcurrentSkipListSet<E>. (2017). At https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ ConcurrentSkipListSet.html. Accessed in 2017, December 19.
   
 [^5]:	Oracle. 2017. Class StringBuilder. (2017). At https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html. Accessed in 2017, December 19.
 
