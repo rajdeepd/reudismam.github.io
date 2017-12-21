@@ -4,7 +4,7 @@ title:      Anomalies in Java
 date:       2017-12-21 14:00:00
 summary:    Anomalies in Java
 categories: Java
-commentIssueId: 1
+commentIssueId: 2
 ---
 
 
@@ -320,8 +320,8 @@ public void writeToFile(String fileName, byte[] content) throws IOException {
 }
 ```
 
-References
-----------
+##References
+
 
 
 [^1]:	https://dzone.com/articles/ fileinputstream-fileoutputstream-considered-harmful
