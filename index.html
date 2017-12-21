@@ -20,13 +20,13 @@ title: Home
     <h3><strong><em>Comments</em></strong></h3>
     <div>
       Want to leave a comment? Write your comment
-      <a href="https://github.com/reudismam/reudismam.github.io/issues/{{page.commentIssueId}}">here</a>.
+      <a href="https://github.com/reudismam/reudismam.github.io/issues/{{post.commentIssueId}}">here</a>.
     </div>
     <div id="comments"></div>
   </div>
 
   <script type="text/javascript">
-   var commentIssueId = {{ page.commentIssueId }};
+   var commentIssueId = {{ post.commentIssueId }};
    /* console.log(commentIssueId);*/
    function formatComment(user, userUrl, avatar, date, commentUrl, body) {
      /* header */
