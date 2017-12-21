@@ -8,7 +8,7 @@ commentIssueId: 2
 ---
 
 
-In this post, we present a catalog of anomalies that developers
+In this post, I present a catalog of anomalies that developers
 perform in Java. For each anomaly, we include name, description,
 benefits, code example, and tools that include the anomaly in their
 catalog (if any). Each anomaly could be associated to one or more code
