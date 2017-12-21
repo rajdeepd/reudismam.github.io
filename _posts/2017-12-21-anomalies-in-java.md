@@ -46,7 +46,7 @@ Allows Type Inference for Generic Instance Creation
 
 Since Java 7, developers can replace the type arguments required to
 invoke the constructor of a generic class with an empty set of type
-parameters (&lt;&gt;)[^6]. The empty set of type
+parameters (&lt;&gt;).[^6] The empty set of type
 parameters, also known as diamond, allows the compiler to infer type
 arguments from the context. By using diamond construction, developers
 make clear the use of generic instead of the deprecated raw types, the
@@ -91,7 +91,7 @@ Prefer Class<?>
 -----------------
 
 Java prefers `Class<?>` over plain `Class` although these constructions are
-equivalent[^2]. The benefit of `Class<?>` is clarity since developers
+equivalent.[^2] The benefit of `Class<?>` is clarity since developers
 explicitly indicates that they are aware of not using an out-dated Java
 construction. The Java compiler generates warning on the use of `Class`.
 Code snipped bellow exemplifies the use of `Class<?>`.
@@ -173,7 +173,7 @@ synchronization is rarely used, `StringBuilder` offers right performance over it
 counterpart. If developers want to synchronize a `StringBuilder`, they can
 surround the code block with a synchronized operator `synchronized(sb){}`. This class is
 designed to replace `StringBuffer` in places where was being used by a
-single thread[^5]. Java recommends the use of `StringBuilder` in
+single thread.[^5] Java recommends the use of `StringBuilder` in
 preference to `StringBuffer` due to performance. Code snipped bellow shows an
 example of the use of the `StringBuilder` class.
 
@@ -305,9 +305,8 @@ Avoid instances of FileInputStream/FileOutputStream
 
 `FileInputStream` and `FileOutputStream` override `finalize()`. As a result, objects of these classes go to a category
 that is cleaned only when a full clearing is performed by the Garbage
-Collector[^1]. Since Java 7, developers can use `Files.new`
-counterpart to improve program performance. This anomaly is described as
-a bug by Java JDK[^3].
+Collector.[^1] Since Java 7, developers can use `Files.new` to improve program performance. This anomaly is described as
+a bug by Java JDK.[^3]
 
 ```java
 //Bad
@@ -327,14 +326,14 @@ public void writeToFile(String fileName, byte[] content) throws IOException {
 # References
 
 
-[^1]:	https://dzone.com/articles/ fileinputstream-fileoutputstream-considered-harmful
+[^1]:	https://dzone.com/articles/fileinputstream-fileoutputstream-considered-harmful
 
 [^2]:	Bruce Eckel. 2005. Thinking in Java (4th Edition). Prentice Hall PTR, Upper Saddle River, NJ, USA.
 
-[^3]:	Java JDK. 2017. Relax FileInputStream/FileOutputStream requirement to use finalize. (2017). At https://bugs.openjdk. java.net/browse/JDK-8187325. Accessed in 2017, December 19.
+[^3]:	Java JDK. 2017. Relax FileInputStream/FileOutputStream requirement to use finalize. (2017). At https://bugs.openjdk.java.net/browse/JDK-8187325. Accessed in 2017, December 19.
   
 [^5]:	Oracle. 2017. Class StringBuilder. (2017). At https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html. Accessed in 2017, December 19.
 
-[^6]:	Oracle. 2017. Type Inference for Generic Instance Creation. (2017). At https://docs.oracle.com/javase/7/docs/technotes/ guides/language/type-inference-generic-instance-creation.html. Accessed in 2017, December 19.
+[^6]:	Oracle. 2017. Type Inference for Generic Instance Creation. (2017). At https://docs.oracle.com/javase/7/docs/technotes/guides/language/type-inference-generic-instance-creation.html. Accessed in 2017, December 19.
 
 
