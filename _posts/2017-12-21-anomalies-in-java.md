@@ -34,12 +34,12 @@ code example of adding the final modifier to a parameter. Variable is
 assigned a single time. Thus, it can be declared final such as variable.
 
 {% highlight java %}
-    public class Bar {
-     public void foo () {
-      String a = "a"; //if a will not be assigned again it is better to do this:
-      final String b = "b";
-     }
-    }
+public class Bar {
+ public void foo() {
+  String a = "a"; //if a will not be assigned again it is better to do this:
+  final String b = "b";
+ }
+}
 {% endhighlight %}
 
 Allows Type Inference for Generic Instance Creation
