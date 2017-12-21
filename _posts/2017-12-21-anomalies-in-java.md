@@ -32,21 +32,9 @@ Netbeans can be configured to add final modifiers to fields, parameters,
 and local variables automatically on saving. Code snipped bellow shows a
 code example of adding the final modifier to a parameter. Variable `a` is
 assigned a single time. Thus, it can be declared final such as variable `b`.
-
-<div class="container">
-    <pre>
-      <code>
-    pre code {overflow-x: scroll; overflow-y: hidden; display: block; line-height: 1.6em; font-size: 11px;
-  }
-  public class Bar {
- public void foo() {
-  String a = "a"; //if a is not assigned again it is better to do this:
-  final String b = "b";
- }
-      </code>
-    </pre>
-  </div>
-  
+ 
+ {% gist 6fd3b7bc1e429eb3b9ba1c7391c273a0 %}
+ 
 ```java
 public class Bar {
  public void foo() {
