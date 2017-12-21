@@ -32,8 +32,14 @@ Netbeans can be configured to add final modifiers to fields, parameters,
 and local variables automatically on saving. Code snipped bellow shows a
 code example of adding the final modifier to a parameter. Variable `a` is
 assigned a single time. Thus, it can be declared final such as variable `b`.
- 
- {% gist 6fd3b7bc1e429eb3b9ba1c7391c273a0 %}
+
+```java
+ public class Bar {
+ public void foo() {
+  String a = "a"; //if a is not assigned again it is better to do this:
+  final String b = "b";
+ }
+ ```
 
 Allows Type Inference for Generic Instance Creation
 ---------------------------------------------------
@@ -52,7 +58,12 @@ operator in a variable declaration. Instead of using the type parameter `<String
 developers can use the diamond to invoke the constructor of generic `HashMap`
 class.
 
- {% gist 1c3b883182d654aa61c5b5414d49f358 %}
+```java
+//Bad
+Map<String, List <String>> myMap = new HashMap<String, List <String>>();
+//Good
+Map<String, List <String>> myMap = new HashMap<>();
+```
  
 
 Remove Raw Type
@@ -67,7 +78,14 @@ types into the source code. Code snipped bellow shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
 raw type since it is unchecked.
 
- {% gist 428481b7d1cd2e7752f7f20540ff3764 %}
+```java
+ List<String> strings = ... // some list that contains some strings
+// Totally legal since you used the raw type and lost all type checking!
+List<Integer> integers = new LinkedList(strings);
+// Not legal since the right side is actually generic!
+List<Integer> integers = new LinkedList<>(strings);
+```
+  
 
 Prefer Class<?>
 -----------------
