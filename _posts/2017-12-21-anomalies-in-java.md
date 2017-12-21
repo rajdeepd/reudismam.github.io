@@ -27,7 +27,7 @@ generates an error at compile-time. Final modifier improves clarity,
 helps developers to debug the code showing constructors that change
 state and are more likely to break the code. In addition, final modifier
 allows the compiler and virtual machine to optimize the code. This
-anomaly is included in tools such as PMD. IDEs such as Eclipse and
+anomaly is included in tools such as PMD. In addition, IDEs such as Eclipse and
 Netbeans can be configured to add final modifiers to fields, parameters,
 and local variables automatically on saving. Code snipped bellow shows a
 code example of adding the final modifier to a parameter. Variable `a` is
