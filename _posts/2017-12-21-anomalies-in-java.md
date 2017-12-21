@@ -46,7 +46,7 @@ Allows Type Inference for Generic Instance Creation
 
 Since Java 7, developers can replace the type arguments required to
 invoke the constructor of a generic class with an empty set of type
-parameters (&lt;&gt;) @URLORACLETYPEINFE. The empty set of type
+parameters (&lt;&gt;) [^6]. The empty set of type
 parameters, also known as diamond, allows the compiler to infer type
 arguments from the context. By using diamond construction, developers
 make clear the use of generic instead of the deprecated raw types, the
@@ -86,10 +86,10 @@ List<Integer> integers = new LinkedList<>(strings);
 ```
 
 Prefer `Class<?>`
--------
+-----------------
 
 Java prefers `Class<?>` over plain `Class` although these constructions are
-equivalent @EC05THIN. The benefit of `Class<?>` is clarity since developers
+equivalent [^2]. The benefit of `Class<?>` is clarity since developers
 explicitly indicates that they are aware of not using an out-dated Java
 construction. The Java compiler generates warning on the use of `Class`.
 Fig. \[fig:class\] exemplifies the use of `Class<?>`.
@@ -144,7 +144,7 @@ For some operations such as concatenating or appending a value to a / it
 is better to represent the value as a character if the value itself is a
 character. Representing the value as a character improves performance.
 For instance, this edit improves from 10-25% the performance at the
-Guava project[^1]. This transformation is included in the catalog of
+Guava project[^7]. This transformation is included in the catalog of
 anomalies of tools such as PMD.
 
 ```java
@@ -161,7 +161,7 @@ public class Foo {
 }
 ```
 StringBuffer to StringBuilder
-----
+-----------------------------
 
 `StringBuffer` and `StringBuilder` denote a mutable sequence of characters. These two types are
 compatible, but `StringBuilder` provides no guarantee of synchronizations. Since
@@ -169,7 +169,7 @@ synchronization is rarely used, `StringBuilder` offers right performance over it
 counterpart. If developers want to synchronize a `StringBuilder`, they can
 surround the code block with a synchronized operator `synchronized(sb){}`. This class is
 designed to replace `StringBuffer` in places where was being used by a
-single thread @URLORACLESTRINGBUILDER. Java recommends the use of `StringBuilder` in
+single thread [^5]. Java recommends the use of `StringBuilder` in
 preference to `StringBuffer` due to performance. Fig. \[fig:stringbuilder\] shows an
 example of the use of the `StringBuilder` class.
 
@@ -183,14 +183,14 @@ public class Bar {
 ```
 
 Use Collection `isEmpty`
----------------
+-----------------------
 
 The use of `isEmpty` is encouraged to verify whether the list contains no elements
 instead of verifying the size of a collection. Although in the majority
 of collections, these two constructions are equivalent, for other
 collections computing the size of an arbitrary list could be expensive.
 For instance, in the class `ConcurrentSkipListSet`, the size method is not a constant-time
-operation @URLORACLECONCURRENTSKIPLISTSET. This transformation is
+operation [^4]. This transformation is
 included in the catalog of anomalies of tools such as PMD.
 Fig. \[fig:isempty\] shows an example of use of the `isEmpty` method.
 
@@ -213,7 +213,7 @@ public class Foo {
 ```
 
 Prefer String Literal `equals` Method
-----------------------------
+-------------------------------------
 
 The equals method is widely used in software development. Some usages
 can cause due to the right-hand side of the method object reference
@@ -248,7 +248,7 @@ public class Foo {
  ```
 
 Prefer String Constant `equals` Method
-----------------------------
+--------------------------------------
 
 The equals method is widely used in software development. Some usages
 can cause due to the right-hand side of the `equals` method object reference
@@ -283,7 +283,7 @@ public class Foo {
 ```
 
 Use `valueOf` instead Wrapper Constructor
--------------------------------
+-----------------------------------------
 
 Java allows to use the method `valueOf` or the constructor to create wrapper
 objects of primitive types. Java recommends the use of `valueOf` for
@@ -297,13 +297,13 @@ Integer b = Integer.valueOf(1);
 ```
 
 Avoid using `FileInputStream`/`FileOutputStream`
--------------
+------------------------------------------------
 
 `FileInputStream` and `FileOutputStream` override `finalize()`. As a result, objects of these classes go to a category
 that is cleaned only when a full clearing is performed by the Garbage
-Collector @URLDZONEINPUTSTREAM. Since Java 7, developers can use
+Collector [^1]. Since Java 7, developers can use
 counterpart to improve program performance. This anomaly is described as
-a bug by Java JDK @URLJAVAJDK.
+a bug by Java JDK [^3].
 
 ```java
 //Bad
@@ -319,5 +319,19 @@ public void writeToFile(String fileName, byte[] content) throws IOException {
  }
 }
 ```
+References
+----------
+[^1]:	DZone. 2017. FileInputStream/FileOutputStream Considered Harmful. (2017). At https://dzone.com/articles/ fileinputstream-fileoutputstream-considered-harmful. Accessed in 2017, December 19.
 
-[^1]: https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722
+[^2]:	Bruce Eckel. 2005. Thinking in Java (4th Edition). Prentice Hall PTR, Upper Saddle River, NJ, USA.
+
+[^3]:	Java JDK. 2017. Relax FileInputStream/FileOutputStream requirement to use finalize. (2017). At https://bugs.openjdk. java.net/browse/JDK-8187325. Accessed in 2017, December 19.
+
+[^4]:	Oracle. 2017. Class ConcurrentSkipListSet<E>. (2017). At https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ ConcurrentSkipListSet.html. Accessed in 2017, December 19.
+  
+[^5]:	Oracle. 2017. Class StringBuilder. (2017). At https://docs.oracle.com/javase/8/docs/api/java/lang/StringBuilder.html. Accessed in 2017, December 19.
+
+[^6]:	Oracle. 2017. Type Inference for Generic Instance Creation. (2017). At https://docs.oracle.com/javase/7/docs/technotes/ guides/language/type-inference-generic-instance-creation.html. Accessed in 2017, December 19.
+
+[^7]: https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722
+
