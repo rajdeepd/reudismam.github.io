@@ -160,6 +160,7 @@ public class Foo {
  }
 }
 ```
+
 StringBuffer to StringBuilder
 -----------------------------
 
