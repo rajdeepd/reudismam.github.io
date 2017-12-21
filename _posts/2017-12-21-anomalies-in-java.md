@@ -215,7 +215,7 @@ public class Foo {
 Prefer String Literal equals Method
 -------------------------------------
 
-The equals method is widely used in software development. Some usages
+The equals method is widely used. Some usages
 can cause due to the right-hand side of the method object reference
 being null. When using the `equals` method to compare some variable to a String
 Literal, developers could overcome null point errors by allowing the
@@ -250,7 +250,7 @@ public class Foo {
 Prefer String Constant equals Method
 --------------------------------------
 
-The equals method is widely used in software development. Some usages
+The equals method is widely used. Some usages
 can cause due to the right-hand side of the `equals` method object reference
 being null. When using the `equals` method to compare some variable to a string
 constant, developers could overcome null point errors by allowing the
