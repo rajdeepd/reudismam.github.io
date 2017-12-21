@@ -144,7 +144,7 @@ For some operations such as concatenating or appending a value to a / it
 is better to represent the value as a character if the value itself is a
 character. Representing the value as a character improves performance.
 For instance, this edit improves from 10-25% the performance at the
-Guava project[^7]. This transformation is included in the catalog of
+<a title="Guava project">https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722</a>. This transformation is included in the catalog of
 anomalies of tools such as PMD.
 
 ```java
@@ -335,5 +335,4 @@ public void writeToFile(String fileName, byte[] content) throws IOException {
 
 [^6]:	Oracle. 2017. Type Inference for Generic Instance Creation. (2017). At https://docs.oracle.com/javase/7/docs/technotes/ guides/language/type-inference-generic-instance-creation.html. Accessed in 2017, December 19.
 
-[^7]: https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722
 
