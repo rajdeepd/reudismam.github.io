@@ -142,7 +142,7 @@ String to Character
 -------------------
 
 In Java, we can represent a character both as a string or a character.
-For some operations such as concatenating or appending a value to a `StringBuilder` it
+For some operations such as concatenating or appending a value to a `StringBuilder`, it
 is better to represent the value as a character if the value itself is a
 character. Representing the value as a character improves performance.
 For instance, this edit improves from 10-25% the performance at the
@@ -170,11 +170,7 @@ StringBuffer to StringBuilder
 `StringBuffer` and `StringBuilder` denote a mutable sequence of characters. These two types are
 compatible, but `StringBuilder` provides no guarantee of synchronizations. Since
 synchronization is rarely used, `StringBuilder` offers right performance over its
-counterpart. If developers want to synchronize a `StringBuilder`, they can
-surround the code block with a synchronized operator `synchronized(sb){}`. This class is
-designed to replace `StringBuffer` in places where was being used by a
-single thread.[^5] Java recommends the use of `StringBuilder` in
-preference to `StringBuffer` due to performance. Code snipped bellow shows an
+counterpart and is recommended by Java.[^5] Code snipped bellow shows an
 example of the use of the `StringBuilder` class.
 
 ```java
