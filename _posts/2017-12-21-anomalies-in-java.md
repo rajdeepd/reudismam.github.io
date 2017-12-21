@@ -67,13 +67,7 @@ types into the source code. Code snipped bellow shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
 raw type since it is unchecked.
 
-```java
-List<String> strings = ... // some list that contains some strings
-// Totally legal since you used the raw type and lost all type checking!
-List<Integer> integers = new LinkedList(strings);
-// Not legal since the right side is actually generic!
-List<Integer> integers = new LinkedList<>(strings);
-```
+ {% gist 428481b7d1cd2e7752f7f20540ff3764 %}
 
 Prefer Class<?>
 -----------------
@@ -85,10 +79,10 @@ construction. The Java compiler generates warning on the use of `Class`.
 Code snipped bellow exemplifies the use of `Class<?>`.
 
 ```java
-    //Any class
-    Class anyType = String.class;
-    //Unknown Type
-    Class <?> unknownType = String.class;
+//Any class
+Class anyType = String.class;
+//Unknown Type
+Class <?> unknownType = String.class;
 ```
 
 Use Variadic Functions
