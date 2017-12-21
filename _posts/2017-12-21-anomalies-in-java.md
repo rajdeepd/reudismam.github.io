@@ -298,12 +298,12 @@ Integer a = new Integer(1); //Instead of using the Integer constructor, use the 
 Integer b = Integer.valueOf(1);
 ```
 
-Avoid using `FileInputStream`/`FileOutputStream`
+Avoid instances of FileInputStream/FileOutputStream
 ------------------------------------------------
 
 `FileInputStream` and `FileOutputStream` override `finalize()`. As a result, objects of these classes go to a category
 that is cleaned only when a full clearing is performed by the Garbage
-Collector[^1]. Since Java 7, developers can use
+Collector[^1]. Since Java 7, developers can use `Files.new`
 counterpart to improve program performance. This anomaly is described as
 a bug by Java JDK[^3].
 
