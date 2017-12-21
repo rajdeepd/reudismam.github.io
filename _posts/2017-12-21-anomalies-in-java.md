@@ -144,7 +144,7 @@ For some operations such as concatenating or appending a value to a / it
 is better to represent the value as a character if the value itself is a
 character. Representing the value as a character improves performance.
 For instance, this edit improves from 10-25% the performance at the
-<a title="Guava project">https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722</a>. This transformation is included in the catalog of
+[Guava project](https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722). This transformation is included in the catalog of
 anomalies of tools such as PMD.
 
 ```java
