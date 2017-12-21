@@ -321,7 +321,8 @@ public void writeToFile(String fileName, byte[] content) throws IOException {
 ```
 References
 ----------
-[^1]:	DZone. 2017. FileInputStream/FileOutputStream Considered Harmful. (2017). At https://dzone.com/articles/ fileinputstream-fileoutputstream-considered-harmful. Accessed in 2017, December 19.
+
+[^1]:	https://dzone.com/articles/ fileinputstream-fileoutputstream-considered-harmful
 
 [^2]:	Bruce Eckel. 2005. Thinking in Java (4th Edition). Prentice Hall PTR, Upper Saddle River, NJ, USA.
 
