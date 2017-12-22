@@ -8,8 +8,8 @@ permalink:           pretty
 title:               Reudismam Rolim
 tagline:             ''
 description:         ''
-url:                 http://www.dsc.ufcg.edu.br/~spg/reudismam/
-baseurl:             'reudismam.github.io'
+url:                 reudismam.github.io
+baseurl:             ''
 paginate:            5
 
 # About/contact
