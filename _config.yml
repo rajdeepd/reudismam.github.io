@@ -9,7 +9,7 @@ title:               Reudismam Rolim
 tagline:             ''
 description:         ''
 url:                 http://www.dsc.ufcg.edu.br/~spg/reudismam/
-baseurl:             ''
+baseurl:             'reudismam.github.io'
 paginate:            5
 
 # About/contact
