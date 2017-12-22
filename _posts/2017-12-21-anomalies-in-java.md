@@ -119,41 +119,6 @@ public class Foo {
 }
  ```
 
-Prefer String Constant equals Method
---------------------------------------
-
-The equals method is widely used. Some usages
-can cause `NullPointerException` due to the right-hand side of the `equals` method object reference
-being null. When using the `equals` method to compare some variable to a string
-constant, developers could overcome null point errors by allowing the
-string constant to call the `equals` method because a constant is rarely null.
-Since Java string literal equals method checks for null, we do not need
-to check for null explicitly when calling the equals method of a string
-literal.
-
-```java
-public class Foo {
-  //Good
-  void good(String str) {
-    if (CONSTANT.equals(str)) {
-      // blah
-    }
-  }
-  // Causes error if str is null
-  void bad(String str) {
-    if (str.equals(CONSTANT) {
-      // blah
-    }
-  }
-  // Do not need to check for null since equals evaluate it.
-  void bad2(String str) {
-    if (str != null && str.equals(CONSTANT) {
-      // blah
-    }
-  }
-}
-```
-
 Use valueOf instead Wrapper Constructor
 -----------------------------------------
 
