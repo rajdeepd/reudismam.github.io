@@ -11,7 +11,7 @@ commentIssueId: 2
 In this post, I present a catalog of anomalies that developers
 perform in Java. For each anomaly, we include name, description,
 benefits, code example, and tools that include the anomaly in their
-catalog (if any). Each anomaly could be associated to one or more code
+catalog (if any). Each anomaly could be associated with one or more code
 metrics such as bug fixing, clarity, performance.
 
 Field, Parameter, Local Variable Could Be Final
@@ -28,7 +28,7 @@ helps developers to debug the code showing constructors that change
 state and are more likely to break the code. In addition, final modifier
 allows the compiler and virtual machine to optimize the code. This
 anomaly is included in tools such as PMD. In addition, IDEs such as Eclipse and
-Netbeans can be configured to add final modifiers to fields, parameters,
+NetBeans can be configured to add final modifiers to fields, parameters,
 and local variables automatically on saving. Code snipped bellow shows a
 code example of adding the final modifier to a parameter. Variable `a` is
 assigned a single time. Thus, it can be declared final such as variable `b`.
@@ -55,7 +55,7 @@ only to ensure compatibility with pre-generics code. The benefit of the
 diamond constructor, in this context, is clarity since it is more
 concise. Code snipped bellow shows the use of the diamond
 operator in a variable declaration. Instead of using the type parameter `<String, List<String>>`, 
-developers can use the diamond to invoke the constructor of generic `HashMap`
+developers can use the diamond to invoke the constructor of the generic `HashMap`
 class.
 
 ```java
@@ -70,7 +70,7 @@ Remove Raw Type
 ---------------
 
 Java discourages the use raw types. A raw type denotes a generic type
-without type arguments, which was used in the out-dated version of Java
+without type arguments, which was used in the outdated version of Java
 and is allowed to ensure compatibility with pre-generics code. Since
 type arguments of raw types are unchecked, they can cause compiler error
 at run-time. Java compiler generates warning to indicate the use of raw
@@ -92,7 +92,7 @@ Prefer Class<?>
 
 Java prefers `Class<?>` over plain `Class` although these constructions are
 equivalent.[^2] The benefit of `Class<?>` is clarity since developers
-explicitly indicates that they are aware of not using an out-dated Java
+explicitly indicates that they are aware of not using an outdated Java
 construction. The Java compiler generates warning on the use of `Class`.
 Code snipped bellow exemplifies the use of `Class<?>`.
 
@@ -131,7 +131,7 @@ public void myMethod(String...strings) {
  for (String whatever: strings) {
   // do what ever you want
  }
- // the code above is is equivalent to
+ // the code above is equivalent to
  for (int i = 0; i < strings.length; i++) {
   // classical for. In this case you use strings[i]
  }
@@ -285,7 +285,7 @@ public class Foo {
 Use valueOf instead Wrapper Constructor
 -----------------------------------------
 
-Java allows to use the method `valueOf` or the constructor to create wrapper
+Java allows using the method `valueOf` or the constructor to create wrapper
 objects of primitive types. Java recommends the use of `valueOf` for
 performance purpose since `valueOf` method caches some values. This checker is
 included in the catalog of anomalies of tools such as Sonar.
