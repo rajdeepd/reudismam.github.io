@@ -17,6 +17,10 @@ author:
   name:              Reudismam Rolim
   url:               https://twitter.com/reudismam
   email:             reudismam@copin.ufcg.edu.br
+  
+#Sidebar
+github
+  repo               https://github.com/reudismam/Refazer
 
 # Custom vars
 version:             1.0.0
