@@ -8,7 +8,7 @@ commentIssueId: 2
 ---
 
 
-We built a tool, Revisar, our technique for learning useful code edits in Java using revision histories. Given code repositories as input, Revisar works as follows: 1) it picks every edit of the across multiple repositories; 2) it groups similar edits using some fancy technique; 3) it generalizes the edits in transformations that can be applied to code. All transformations we discovered can be found [here](https://1drv.ms/b/s!Am3WpmEXpcZF4EY30E0InLgnYSMZ), but, in this post, we present some of the most common cool transformation developers perform to java code that Revisar automatically discovered!
+We built a tool, Revisar, that automatically learns useful code edits in Java using revision histories. Given code repositories as input, Revisar works as follows: 1) it picks every edit of the across multiple repositories; 2) it groups similar edits using some fancy technique; 3) it generalizes the edits in transformations that can be applied to code. All transformations we discovered can be found [here](https://1drv.ms/b/s!Am3WpmEXpcZF4EY30E0InLgnYSMZ), but, in this post, we present some of the most common cool transformation developers perform to java code that Revisar automatically discovered!
 
 String to Character
 -------------------
