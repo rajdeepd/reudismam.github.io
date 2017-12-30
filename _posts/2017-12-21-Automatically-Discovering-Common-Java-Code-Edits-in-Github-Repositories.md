@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Anomalies in Java
+title:      Automatically Discovering Common Java Code Edits in Github Repositories
 date:       2017-12-21 14:00:00
 summary:    Automatically Discovering Common Java Code Edits in Github Repositories
 categories: Java
