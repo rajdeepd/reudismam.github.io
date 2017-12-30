@@ -224,7 +224,7 @@ Remove Raw Type
 Java discourages the use raw types. A raw type denotes a generic type
 without type arguments, which was used in the outdated version of Java
 and is allowed to ensure compatibility with pre-generics code. Since
-type arguments of raw types are unchecked, they can cause compiler error
+type arguments of raw types are unchecked, they can cause errors
 at run-time. Java compiler generates warning to indicate the use of raw
 types into the source code. Code snipped bellow shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
