@@ -2,7 +2,7 @@
 layout:     post
 title:      Anomalies in Java
 date:       2017-12-21 14:00:00
-summary:    Anomalies in Java
+summary:    Automatically Discovering Common Java Code Edits in Github Repositories
 categories: Java
 commentIssueId: 2
 ---
