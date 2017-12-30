@@ -7,13 +7,9 @@ categories: Java
 commentIssueId: 2
 ---
 by 
-
 *Reudismam Rolim, Federal University of Campina Grande, Brazil*
-
 *Loris D'Antoni, University of Wisconsin-Madison, USA*
-
 *Gustavo Soares, Microsoft Research, USA*
-
 *Rohit Gheyi, Federal University of Campina Grande, Brazil*
 
 
