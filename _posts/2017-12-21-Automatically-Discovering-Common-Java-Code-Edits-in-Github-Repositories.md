@@ -80,7 +80,7 @@ collections computing the size of an arbitrary list could be expensive.
 For instance, in the class [ConcurrentSkipListSet](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html), the size method is not a constant-time
 operation. This transformation is
 included in the catalog of anomalies of tools such as PMD.
-Code snippet below shows an example of use of the `isEmpty` method.
+Code snippet below shows an example of the use of the `isEmpty` method.
 
 ```java
 public class Foo {
@@ -103,7 +103,7 @@ public class Foo {
 Prefer String Literal equals Method
 -------------------------------------
 
-The equals method is widely used. Some usages
+The equals method is widely used. Some uses
 can cause `NullPointerException` due to the right-hand side of the method object reference
 being null. When using the `equals` method to compare some variable to a String
 Literal, developers could overcome null pointer errors by allowing the
@@ -177,10 +177,10 @@ Field, Parameter, Local Variable Could Be Final
 -----------------------------------------------
 
 Besides classes and methods, developers can use the `final` modifier in fields,
-parameters, and local variables. The syntax differs for each one of
-these usages. A final class cannot be extended, a final method cannot be
+parameters, and local variables. The meaning differs for each one of
+these uses. A final class cannot be extended, a final method cannot be
 overridden, and final fields, parameters, and local variables cannot
-change their value. Thus, a final modifier guarantees that fields,
+change their value. Thus, a final modifier ensures that fields,
 parameters, and local variables cannot be re-assigned. A re-assignment
 generates an error at compile-time. Final modifier improves clarity,
 helps developers to debug the code showing constructors that change
@@ -203,13 +203,13 @@ declared final such as variable `b`.
 Allows Type Inference for Generic Instance Creation
 ---------------------------------------------------
 
-Since Java 7, developers can replace the type arguments required to
+Since Java 7, developers can replace the type parameters required to
 invoke the constructor of a generic class with an empty set of type
 parameters (&lt;&gt;).[^6] The empty set of type
 parameters, also known as diamond, allows the compiler to infer type
 arguments from the context. By using diamond construction, developers
 clarify the use of generic instead of the deprecated raw types, the
-version of a generic type without type arguments. Java allows raw types
+version of a generic type without type parameters. Java allows raw types
 only to ensure compatibility with pre-generics code. The benefit of the
 diamond constructor, in this context, is clarity since it is more
 concise. Code snippet below shows the use of the diamond
@@ -229,9 +229,9 @@ Remove Raw Type
 ---------------
 
 Java discourages the use of raw types. A raw type denotes a generic type
-without type arguments, which was used in the outdated version of Java
+without type parameters, which was used in the outdated version of Java
 and is allowed to ensure compatibility with pre-generics code. Since
-type arguments of raw types are unchecked, they can cause errors
+type parameters of raw types are unchecked, they can cause errors
 at run-time. Java compiler generates warning to indicate the use of raw
 types into the source code. Code snippet below shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
