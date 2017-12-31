@@ -105,8 +105,8 @@ Prefer String Literal equals Method
 
 The equals method is widely used. Some uses
 can cause `NullPointerException` due to the right-hand side of the method object reference
-being null. When using the `equals` method to compare some variable to a String
-Literal, developers could overcome null pointer errors by allowing the
+being null. When using the `equals` method to compare some variable to a string
+literal, developers could overcome null pointer exceptions by allowing the
 string literal to call the `equals` method because a string literal is never
 null. Since Java string literal equals method checks for null, we do not
 need to check for null explicitly when calling the equals method of a
@@ -140,8 +140,8 @@ Use valueOf instead Wrapper Constructor
 
 Java allows using the method `valueOf` or the constructor to create wrapper
 objects of primitive types. Java recommends the use of `valueOf` for
-performance purpose since `valueOf` method caches some values. This checker is
-included in the catalog of anomalies of tools such as Sonar.
+better performance since `valueOf` method caches some values. This checker is
+included in the catalog of anomalies of tools such as [Sonar](https://www.sonarqube.org/).
 Code snippet below shows an example of the use of the `valueOf` method.
 
 ```java
@@ -153,7 +153,7 @@ Avoid instances of FileInputStream/FileOutputStream
 ------------------------------------------------
 
 `FileInputStream` and `FileOutputStream` override `finalize()`. As a result, objects of these classes go to a category
-that is cleaned only when a full clearing is performed by the Garbage
+that is removed only when a full cleaning is performed by the Garbage
 Collector.[^1] Since Java 7, developers can use `Files.new` to improve program performance. This anomaly is described as
 a bug by Java JDK.[^3]
 
@@ -183,7 +183,7 @@ overridden, and final fields, parameters, and local variables cannot
 change their value. Thus, a final modifier ensures that fields,
 parameters, and local variables cannot be re-assigned. A re-assignment
 generates an error at compile-time. Final modifier improves clarity,
-helps developers to debug the code showing constructors that change
+helps developers to debug their code showing constructors that change
 state and are more likely to break the code. In addition, final modifier
 allows the compiler and virtual machine to optimize the code. This
 anomaly is included in tools such as PMD. In addition, IDEs such as [Eclipse](http://www.eclipse.org/) and
@@ -207,7 +207,7 @@ Since Java 7, developers can replace the type parameters required to
 invoke the constructor of a generic class with an empty set of type
 parameters (&lt;&gt;).[^6] The empty set of type
 parameters, also known as diamond, allows the compiler to infer type
-arguments from the context. By using diamond construction, developers
+parameters from the context. By using diamond construction, developers
 clarify the use of generic instead of the deprecated raw types, the
 version of a generic type without type parameters. Java allows raw types
 only to ensure compatibility with pre-generics code. The benefit of the
