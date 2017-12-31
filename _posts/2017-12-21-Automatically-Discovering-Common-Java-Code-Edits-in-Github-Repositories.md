@@ -56,7 +56,7 @@ StringBuffer to StringBuilder
 `StringBuffer` and `StringBuilder` denote a mutable sequence of characters. These two types are
 compatible, but `StringBuilder` provides no guarantee of synchronization. Since
 synchronization is rarely used, `StringBuilder` offers better performance over its
-counterpart and is recommended by Java.[^5] Code snippet bellow shows an
+counterpart and is recommended by Java.[^5] Code snippet below shows an
 example of the use of the `StringBuilder` class.
 
 ```java
