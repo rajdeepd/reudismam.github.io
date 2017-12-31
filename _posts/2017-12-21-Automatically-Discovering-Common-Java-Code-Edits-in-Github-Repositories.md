@@ -17,7 +17,13 @@ by
 *Rohit Gheyi, Federal University of Campina Grande, Brazil*
 
 
-We built a tool, Revisar, that automatically learns useful code edits in Java using revision histories. Given code repositories as input, Revisar works as follows: 1) it picks every edit of the across multiple repositories; 2) it groups similar edits using some fancy technique; 3) it generalizes the edits in transformations that can be applied to code. All transformations we discovered can be found [here](https://1drv.ms/b/s!Am3WpmEXpcZF4E6Coip57CXjQ9x-), but, in this post, we present some of the most common cool transformation developers perform to java code that Revisar automatically discovered!
+We built a tool, Revisar, that automatically learns useful code edits in Java using revision histories. Given code repositories as input, Revisar works as follows: 
+
+1) it picks every edit of the across multiple repositories; 
+2) it groups similar edits using some fancy technique; 
+3) it generalizes the edits in transformations that can be applied to code. 
+
+All transformations we discovered can be found [here](https://1drv.ms/b/s!Am3WpmEXpcZF4E6Coip57CXjQ9x-), but, in this post, we present some of the most common and cool code transformations by Java developers that Revisar automatically discovered!
 
 String to Character
 -------------------
@@ -26,8 +32,7 @@ In Java, we can represent a character both as a string or a character.
 For some operations such as concatenating or appending a value to a `StringBuilder`, it
 is better to represent the value as a character if the value itself is a
 character. Representing the value as a character improves performance.
-For instance, this edit improves from 10-25% the performance at the
-[Guava project](https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722). This transformation is included in the catalog of
+For instance, this string to character [edit in the Guava project](https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722) improved performance by 10-25%. This transformation is included in the catalog of
 anomalies of tools such as PMD.
 
 ```java
@@ -49,9 +54,9 @@ StringBuffer to StringBuilder
 
 
 `StringBuffer` and `StringBuilder` denote a mutable sequence of characters. These two types are
-compatible, but `StringBuilder` provides no guarantee of synchronizations. Since
-synchronization is rarely used, `StringBuilder` offers right performance over its
-counterpart and is recommended by Java.[^5] Code snipped bellow shows an
+compatible, but `StringBuilder` provides no guarantee of synchronization. Since
+synchronization is rarely used, `StringBuilder` offers better performance over its
+counterpart and is recommended by Java.[^5] Code snippet bellow shows an
 example of the use of the `StringBuilder` class.
 
 ```java
@@ -73,7 +78,7 @@ collections computing the size of an arbitrary list could be expensive.
 For instance, in the class [ConcurrentSkipListSet](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ConcurrentSkipListSet.html), the size method is not a constant-time
 operation. This transformation is
 included in the catalog of anomalies of tools such as PMD.
-Code snipped bellow shows an example of use of the `isEmpty` method.
+Code snippet below shows an example of use of the `isEmpty` method.
 
 ```java
 public class Foo {
@@ -99,7 +104,7 @@ Prefer String Literal equals Method
 The equals method is widely used. Some usages
 can cause `NullPointerException` due to the right-hand side of the method object reference
 being null. When using the `equals` method to compare some variable to a String
-Literal, developers could overcome null point errors by allowing the
+Literal, developers could overcome null pointer errors by allowing the
 string literal to call the `equals` method because a string literal is never
 null. Since Java string literal equals method checks for null, we do not
 need to check for null explicitly when calling the equals method of a
@@ -135,7 +140,7 @@ Java allows using the method `valueOf` or the constructor to create wrapper
 objects of primitive types. Java recommends the use of `valueOf` for
 performance purpose since `valueOf` method caches some values. This checker is
 included in the catalog of anomalies of tools such as Sonar.
-Code snipped bellow shows an example of the use of the `valueOf` method.
+Code snippet below shows an example of the use of the `valueOf` method.
 
 ```java
 Integer a = new Integer(1); //Instead of using the Integer constructor, use the valueOf
@@ -170,7 +175,7 @@ Field, Parameter, Local Variable Could Be Final
 -----------------------------------------------
 
 Besides classes and methods, developers can use the `final` modifier in fields,
-parameters, and local variables. The semantic differs for each one of
+parameters, and local variables. The syntax differs for each one of
 these usages. A final class cannot be extended, a final method cannot be
 overridden, and final fields, parameters, and local variables cannot
 change their value. Thus, a final modifier guarantees that fields,
@@ -179,11 +184,11 @@ generates an error at compile-time. Final modifier improves clarity,
 helps developers to debug the code showing constructors that change
 state and are more likely to break the code. In addition, final modifier
 allows the compiler and virtual machine to optimize the code. This
-anomaly is included in tools such as PMD. In addition, IDEs such as Eclipse and
-NetBeans can be configured to add final modifiers to fields, parameters,
-and local variables automatically on saving. Code snipped bellow shows a
-code example of adding the final modifier to a parameter. Variable `a` is
-assigned a single time. Thus, it can be declared final such as variable `b`.
+anomaly is included in tools such as PMD. In addition, IDEs such as [Eclipse](http://www.eclipse.org/) and
+[NetBeans](https://netbeans.org/) can be configured to add final modifiers to fields, parameters,
+and local variables automatically on saving. Code snippet below shows an example of adding the 
+final modifier to a parameter. Variable `a` is assigned a single time. Thus, it can be 
+declared final such as variable `b`.
 
 ```java
  public class Bar {
@@ -205,7 +210,7 @@ clarify the use of generic instead of the deprecated raw types, the
 version of a generic type without type arguments. Java allows raw types
 only to ensure compatibility with pre-generics code. The benefit of the
 diamond constructor, in this context, is clarity since it is more
-concise. Code snipped bellow shows the use of the diamond
+concise. Code snippet below shows the use of the diamond
 operator in a variable declaration. Instead of using the type parameter `<String, List<String>>`, 
 developers can use the diamond to invoke the constructor of the generic `HashMap`
 class.
@@ -221,12 +226,12 @@ Map<String, List <String>> myMap = new HashMap<>();
 Remove Raw Type
 ---------------
 
-Java discourages the use raw types. A raw type denotes a generic type
+Java discourages the use of raw types. A raw type denotes a generic type
 without type arguments, which was used in the outdated version of Java
 and is allowed to ensure compatibility with pre-generics code. Since
 type arguments of raw types are unchecked, they can cause errors
 at run-time. Java compiler generates warning to indicate the use of raw
-types into the source code. Code snipped bellow shows the use of a raw
+types into the source code. Code snippet below shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
 raw type since it is unchecked.
 
@@ -246,7 +251,7 @@ Java prefers `Class<?>` over plain `Class` although these constructions are
 equivalent.[^2] The benefit of `Class<?>` is clarity since developers
 explicitly indicates that they are aware of not using an outdated Java
 construction. The Java compiler generates warning on the use of `Class`.
-Code snipped bellow exemplifies the use of `Class<?>`.
+Code snippet below exemplifies the use of `Class<?>`.
 
 ```java
 //Any class
@@ -265,9 +270,9 @@ receives a variable number of arguments, developers have to create
 overload method for each number of arguments or to pass an array of
 arguments to the method. The benefit of using varargs is simplicity
 since developers do not need to create overload methods and use the same
-notation independently of the number of arguments. For the compiler
+notation independently of the number of arguments. From the compiler's
 perspective, the method receives an array as parameter.
-Code snipped bellow shows the use of the Variadic functions.
+Code snippet below shows the use of the Variadic functions.
 
 ```java
 //...
