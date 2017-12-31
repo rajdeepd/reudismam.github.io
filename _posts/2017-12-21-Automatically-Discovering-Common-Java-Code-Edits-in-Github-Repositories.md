@@ -35,7 +35,7 @@ For some operations such as concatenating or appending a value to a `StringBuild
 is better to represent the value as a character if the value itself is a
 character. Representing the value as a character improves performance.
 For instance, this string to character [edit in the Guava project](https://github.com/google/guava/commit/8f48177132547cee2943c93837d76b898154d722) improved performance by 10-25%. This transformation is included in the catalog of
-anomalies of tools such as PMD.
+anomalies of tools such as [PMD](http://pmd.sourceforge.net/pmd-4.3.0/howitworks.html).
 
 ```java
 public class Foo {
