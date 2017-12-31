@@ -232,7 +232,7 @@ Java discourages the use of raw types. A raw type denotes a generic type
 without type parameters, which was used in the outdated version of Java
 and is allowed to ensure compatibility with pre-generics code. Since
 type parameters of raw types are unchecked, they can cause errors
-at run-time. Java compiler generates warning to indicate the use of raw
+at run-time. The Java compiler generates a warning to indicate the use of raw
 types into the source code. Code snippet below shows the use of a raw
 type. Developers can pass any type of collection to the constructor of a
 raw type since it is unchecked.
@@ -251,8 +251,8 @@ Prefer Class<?>
 
 Java prefers `Class<?>` over plain `Class` although these constructions are
 equivalent.[^2] The benefit of `Class<?>` is clarity since developers
-explicitly indicates that they are aware of not using an outdated Java
-construction. The Java compiler generates warning on the use of `Class`.
+explicitly indicate that they are aware of not using an outdated Java
+construction. The Java compiler generates a warning on the use of `Class`.
 Code snippet below exemplifies the use of `Class<?>`.
 
 ```java
