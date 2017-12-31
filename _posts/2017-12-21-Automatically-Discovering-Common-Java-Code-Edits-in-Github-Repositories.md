@@ -273,7 +273,7 @@ overload method for each number of arguments or to pass an array of
 arguments to the method. The benefit of using varargs is simplicity
 since developers do not need to create overload methods and use the same
 notation independently of the number of arguments. From the compiler's
-perspective, the method receives an array as parameter.
+perspective, the method receives an array as the parameter.
 Code snippet below shows the use of the Variadic functions.
 
 ```java
