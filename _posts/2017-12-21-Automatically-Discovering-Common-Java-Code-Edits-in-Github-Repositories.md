@@ -183,7 +183,7 @@ overridden, and final fields, parameters, and local variables cannot
 change their value. Thus, a final modifier ensures that fields,
 parameters, and local variables cannot be re-assigned. A re-assignment
 generates an error at compile-time. Final modifier improves clarity,
-helps developers to debug their code showing constructors that change
+helps developers to debug their code showing Java constructions that change
 state and are more likely to break the code. In addition, final modifier
 allows the compiler and virtual machine to optimize the code. This
 anomaly is included in tools such as PMD. In addition, IDEs such as [Eclipse](http://www.eclipse.org/) and
