@@ -27,6 +27,8 @@ We built a tool, Revisar, that automatically learns useful code edits in Java us
 
 All transformations we discovered can be found [here](https://1drv.ms/b/s!Am3WpmEXpcZF4E6Coip57CXjQ9x-), but, in this post, we present some of the most common and cool code transformations by Java developers that Revisar automatically discovered!
 
+More information about Revisar can be found in [this paper](https://arxiv.org/abs/1803.03806).
+
 String to Character
 -------------------
 
